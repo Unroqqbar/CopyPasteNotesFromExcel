@@ -5,16 +5,20 @@ workbook_name = "database.xlsx"
 workbook = openpyxl.load_workbook(workbook_name, data_only=True)
 sheet = workbook["SEM 1"]
 
+name_spalte = input("A wéinger Kolonn ass de Virnumm vum Schüler? (A, B, C, ...)\n").upper()
+score_spalte = input("A wéinger Kolonn ass d'Note vum Schüler? (A, B, C, ...)\n").upper()
+moyenne_spalte = input("A wéinger Kolonn ass d'Moyenne vum Schüler? (A, B, C, ...)\n").upper()
+
 name_list = []
-for name in sheet["B"][2:]:
+for name in sheet[name_spalte][2:]:
     name_list.append(name.value)
 
 score_list = []
-for score in sheet["E"][2:]:
+for score in sheet[score_spalte][2:]:
     score_list.append(score.value)
 
 moyenne_list = []
-for moyenne in sheet["L"][2:]:
+for moyenne in sheet[moyenne_spalte][2:]:
     moyenne_list.append(moyenne.value)
 
 for num in range(len(score_list)):
